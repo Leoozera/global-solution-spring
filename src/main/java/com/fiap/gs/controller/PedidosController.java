@@ -8,10 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fiap.gs.model.dto.DTOAtualizarPedido;
 import com.fiap.gs.model.dto.DTOCadastroPedido;
 import com.fiap.gs.model.dto.DTOID;
 import com.fiap.gs.model.dto.DTOListagemPedido;
@@ -39,6 +41,14 @@ public class PedidosController {
 			@PageableDefault(size=3) Pageable paginacao){
 		return repository.findAll(paginacao)
 				.map(DTOListagemPedido :: new);
+	}
+	
+	@PutMapping
+	@Transactional
+	public void atualizar(@RequestBody @Valid DTOAtualizarPedido dados) {
+		Pedido pedido = new Pedido();
+		pedido = repository.getReferenceById(dados.id());
+		pedido.atualizarInformacoes(dados);
 	}
 	
 	@DeleteMapping

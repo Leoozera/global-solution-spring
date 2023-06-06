@@ -1,5 +1,6 @@
 package com.fiap.gs.model.entity;
 
+import com.fiap.gs.model.dto.DTOAtualizarPedido;
 import com.fiap.gs.model.dto.DTOCadastroPedido;
 
 import jakarta.persistence.Embedded;
@@ -41,6 +42,14 @@ public class Pedido {
 		this.restauranteId = dto.restaurante_id();
 		this.produtoId = dto.produto_id();
 	}
+	
+	public void atualizarInformacoes(DTOAtualizarPedido dto) {
+		if(dto.status() != null) {
+			this.status = dto.status();
+		}
+	}
+
+	
 	
 	public void cancelar() {
 		this.status = PedidoStatusEnum.CANCELADO;

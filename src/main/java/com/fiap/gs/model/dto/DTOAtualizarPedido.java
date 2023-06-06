@@ -1,5 +1,7 @@
 package com.fiap.gs.model.dto;
 
+import com.fiap.gs.model.entity.PedidoStatusEnum;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
@@ -7,10 +9,7 @@ public record DTOAtualizarPedido(
 		@NotNull
 		Long id,
 		@Valid
-		DTOEndereco endereco,
-		Long consumidor_id,
-		Long restaurante_id,
-		Long produto_id
+		PedidoStatusEnum status
 	) {
 }
 
