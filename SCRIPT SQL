@@ -1,0 +1,62 @@
+CREATE TABLE consumidores (     
+id NUMBER GENERATED ALWAYS AS IDENTITY,  
+cpf      VARCHAR2(15),    
+nome     VARCHAR2(100),     
+email     VARCHAR2(100),  
+idade    NUMBER(3),     
+telefone VARCHAR2(15),
+rua     VARCHAR2(100),  
+complemento     VARCHAR2(100),  
+cidade     VARCHAR2(40),  
+estado     VARCHAR2(40),  
+bairro     VARCHAR2(100),
+ativo VARCHAR2(5)
+);
+
+ALTER TABLE consumidores ADD CONSTRAINT consumidores_pk PRIMARY KEY (id)
+
+CREATE TABLE produtos (     
+id NUMBER GENERATED ALWAYS AS IDENTITY,   
+descricao     VARCHAR2(100),  
+titulo     VARCHAR2(100),       
+preco    NUMBER(20,2),     
+estoque    NUMBER(20),   
+ativo VARCHAR2(5)
+);
+
+ALTER TABLE produtos ADD CONSTRAINT produtos_pk PRIMARY KEY (id)
+
+
+CREATE TABLE restaurantes (     
+id NUMBER GENERATED ALWAYS AS IDENTITY,   
+nome     VARCHAR2(100),  
+descricao     VARCHAR2(100),  
+cnpj     VARCHAR2(20),       
+nota    NUMBER(20,2),     
+rua     VARCHAR2(100),  
+complemento     VARCHAR2(100),  
+cidade     VARCHAR2(40),  
+estado     VARCHAR2(40),  
+bairro     VARCHAR2(100),
+ativo VARCHAR2(5)
+);
+
+ALTER TABLE restaurantes ADD CONSTRAINT restaurantes_pk PRIMARY KEY (id)
+
+CREATE TABLE pedidos (     
+id NUMBER GENERATED ALWAYS AS IDENTITY,   
+rua     VARCHAR2(100),  
+complemento     VARCHAR2(100),  
+cidade     VARCHAR2(40),  
+estado     VARCHAR2(40),  
+bairro     VARCHAR2(100),
+status VARCHAR2(30),
+consumidor_id NUMBER,
+restaurante_id NUMBER,
+produto_id NUMBER
+);
+
+ALTER TABLE pedidos ADD CONSTRAINT pedidos_pk PRIMARY KEY (id)
+ALTER TABLE pedidos ADD CONSTRAINT pedidos_produto_fk FOREIGN KEY (produto_id) references produtos
+ALTER TABLE pedidos ADD CONSTRAINT pedidos_consumidor_fk FOREIGN KEY (consumidor_id) references consumidores
+ALTER TABLE pedidos ADD CONSTRAINT pedidos_restaurante_fk FOREIGN KEY (restaurante_id) references restaurantes
