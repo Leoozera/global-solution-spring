@@ -38,7 +38,7 @@ public class PedidosController {
 	
 	@GetMapping
 	public Page<DTOListagemPedido> listar(
-			@PageableDefault(size=3) Pageable paginacao){
+			@PageableDefault(size=10) Pageable paginacao){
 		return repository.findAll(paginacao)
 				.map(DTOListagemPedido :: new);
 	}

@@ -88,6 +88,20 @@
 }
 ```
 
+-> Método *PUT*
+
+-> /produto
+
+-> Editar um produto
+
+``` 
+{
+    "id": 1,
+    "titulo": "Produto com titulo alterado",
+    "estoque": 10
+}
+```
+
 -> Método *DELETE*
 
 -> /produto

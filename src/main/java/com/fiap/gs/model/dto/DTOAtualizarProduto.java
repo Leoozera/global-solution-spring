@@ -7,7 +7,7 @@ public record DTOAtualizarProduto(
 		Long id,
 		String titulo,
 		String descricao,
-		double preco,
-		int estoque
+		Double preco,
+		Integer estoque
 	) {
 }

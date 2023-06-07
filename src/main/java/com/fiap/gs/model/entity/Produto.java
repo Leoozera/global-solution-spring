@@ -1,5 +1,6 @@
 package com.fiap.gs.model.entity;
 
+import com.fiap.gs.model.dto.DTOAtualizarProduto;
 import com.fiap.gs.model.dto.DTOCadastroProduto;
 
 import jakarta.persistence.Entity;
@@ -18,8 +19,8 @@ public class Produto {
 	private String titulo;
 	private String descricao;
 	
-	private double preco;
-	private int estoque;
+	private Double preco;
+	private Integer estoque;
 	
 	private String ativo;
 	
@@ -32,6 +33,22 @@ public class Produto {
 		this.estoque = dto.estoque();
 		this.ativo = "Sim";
 	}
+	
+	public void atualizarInformacoes(DTOAtualizarProduto dto) {
+		if(dto.titulo() != null) {
+			this.titulo = dto.titulo();
+		}
+		if(dto.descricao() != null) {
+			this.descricao = dto.descricao();
+		}
+		if(dto.preco() != null) {
+			this.preco = dto.preco();
+		}
+		if(dto.estoque() != null) {
+			this.estoque = dto.estoque();
+		}
+	}
+
 	
 	public void excluir() {
 		this.ativo = "Não";
