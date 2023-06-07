@@ -9,7 +9,8 @@ public record DTOListagemRestaurante(
 		String descricao,
 		String cnpj,
 		double nota,
-		Endereco endereco
+		Endereco endereco,
+		String ativo
 	) 
 {
 	public DTOListagemRestaurante(Restaurante restaurante) {
@@ -19,7 +20,8 @@ public record DTOListagemRestaurante(
 				restaurante.getDescricao(),
 				restaurante.getCnpj(),
 				restaurante.getNota(),
-				restaurante.getEndereco()
+				restaurante.getEndereco(),
+				restaurante.getAtivo()
 			);
 	}
 }

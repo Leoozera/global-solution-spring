@@ -7,7 +7,8 @@ public record DTOListagemProduto(
 		String titulo,
 		String descricao,
 		double preco,
-		int estoque
+		int estoque,
+		String ativo
 	) 
 {
 	public DTOListagemProduto(Produto produto) {
@@ -16,7 +17,8 @@ public record DTOListagemProduto(
 				produto.getTitulo(),
 				produto.getDescricao(),
 				produto.getPreco(),
-				produto.getEstoque()
+				produto.getEstoque(),
+				produto.getAtivo()
 			);
 	}
 }

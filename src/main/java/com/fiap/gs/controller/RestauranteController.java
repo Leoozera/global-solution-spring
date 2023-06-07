@@ -37,7 +37,7 @@ public class RestauranteController {
 	@GetMapping
 	public Page<DTOListagemRestaurante> listar(
 			@PageableDefault(size=10, sort= {"nome"}) Pageable paginacao){
-		return repository.findAll(paginacao)
+		return repository.findAllByAtivo("Sim", paginacao)
 				.map(DTOListagemRestaurante :: new);
 	}
 	

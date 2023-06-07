@@ -39,7 +39,7 @@ public class ProdutosController {
 	@GetMapping
 	public Page<DTOListagemProduto> listar(
 			@PageableDefault(size=10, sort= {"titulo"}) Pageable paginacao){
-		return repository.findAll(paginacao)
+		return repository.findAllByAtivo("Sim", paginacao)
 				.map(DTOListagemProduto :: new);
 	}
 	
