@@ -36,8 +36,8 @@ public class ConsumidorController {
 	
 	@GetMapping
 	public Page<DTOListagemConsumidor> listar(
-			@PageableDefault(size=10, sort= {"nome"}) Pageable paginacao){
-		return repository.findAll(paginacao)
+			@PageableDefault(size=3, sort= {"nome"}) Pageable paginacao){
+		return repository.findAllByAtivo("Sim", paginacao)
 				.map(DTOListagemConsumidor :: new);
 	}
 	

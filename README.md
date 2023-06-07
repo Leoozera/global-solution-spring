@@ -1,3 +1,11 @@
+# Video PITCH
+
+-> https://www.youtube.com/watch?v=0pdpH417Gz8
+
+# Observações
+
+Devido a problemas de ambiente, comentamos o código que envolve a segurança pois a biblioteca do EXPO utilizada no react native em mobile, pois o emulador de android estava tendo as requisições bloqueadas. Desta forma, foi necessário comentar para seguir a entrega, no entanto foi seguido exatamente ao PDF.
+
 # Rotas da API 
 
 ### Consumidor
@@ -23,6 +31,18 @@
         "cidade": "São paulo"
     }
 }
+
+```
+
+-> Método *GET*
+
+-> /consumidor
+
+-> Buscar consumidores
+
+```
+{
+}
 ```
 
 -> Método *DELETE*
@@ -38,6 +58,19 @@
 ```
 
 ### Restaurante
+
+
+-> Método *GET*
+
+-> /restaurante
+
+-> Buscar restaurantes
+
+```
+{
+}
+```
+
 
 -> Método *POST*
 
@@ -72,6 +105,18 @@
 }
 ```
 ### Produto
+
+-> Método *GET*
+
+-> /produto
+
+-> Buscar produtos
+
+```
+{
+}
+```
+
 
 -> Método *POST*
 
@@ -116,6 +161,17 @@
 ```
 
 ### Pedidos
+
+-> Método *GET*
+
+-> /pedidos
+
+-> Buscar pedidos
+
+```
+{
+}
+```
 
 -> Método *POST*
 
